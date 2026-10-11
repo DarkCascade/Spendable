@@ -1,0 +1,21 @@
+*.iml
+.gradle/
+.kotlin/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Never commit real bank exports
+*.csv
+!app/src/test/resources/**/*.csv
+
+# Promo renders and raw footage (rebuild with promo/build.py)
+/promo/*.mp4
+/promo/*.wav
+/promo/*.txt
+/promo/*.graph
