@@ -1,8 +1,37 @@
 # Spendable
 
-An Android app (built for a Pixel 10) that estimates how much you can actually spend right now.
-You give it your available balance, and it subtracts the recurring bills it expects before your
-next payday. It learns those bills from bank CSV exports. It never connects to a bank.
+An app that estimates how much you can actually spend right now. You give it your available
+balance, and it subtracts the recurring bills it expects before your next payday. It learns those
+bills from bank CSV exports. It never connects to a bank.
+
+It comes in two versions with the same engine:
+
+- **Android** (built for a Pixel 10): the Kotlin app in `app/`.
+- **iPhone, or any phone browser**: a web app in `web/`, live at
+  **https://darkcascade.github.io/Spendable/**.
+
+## iPhone install
+
+1. Open https://darkcascade.github.io/Spendable/ in **Safari**.
+2. Tap **Share → Add to Home Screen**. It opens full-screen with its own icon and works offline.
+3. In the USAA website, export transactions as CSV. The file lands in Files → Downloads.
+4. In Spendable, tap ☰ → **Import bank CSV** and pick the file.
+
+All data stays on the phone, in two IndexedDB databases (`spendable-transactions` and
+`spendable-recurring`). Each phone keeps its own copy, so every device imports its own CSVs.
+
+Differences from the Android app:
+- **No Jev classifier.** TypeSafe's API doesn't allow browser calls (CORS), so the web app uses
+  the heuristic engine only. Adding Jev would need a small proxy server.
+- **Haptics are best-effort.** On iOS 18+ they use the native-switch trick; Android Chrome vibrates.
+
+The web app is plain HTML/CSS/JS with no build step: pushing to `main` deploys it via GitHub
+Pages. The root `index.html` forwards to `web/`. Engine tests, including a parity check against
+the Android results when a local sample CSV exists:
+
+```
+node --test "web/test/*.test.mjs"
+```
 
 ## How it works
 

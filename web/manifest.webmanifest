@@ -1,0 +1,16 @@
+{
+  "name": "Spendable",
+  "short_name": "Spendable",
+  "description": "How much can I actually spend right now? Recurring bills learned from your bank CSV exports. Everything stays on your phone.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E0A1F",
+  "theme_color": "#0E0A1F",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

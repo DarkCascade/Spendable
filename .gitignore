@@ -19,3 +19,7 @@
 /promo/*.wav
 /promo/*.txt
 /promo/*.graph
+
+# Local tooling
+/.claude/
+/web/node_modules/
